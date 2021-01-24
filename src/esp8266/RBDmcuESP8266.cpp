@@ -136,7 +136,7 @@ void dimmerLamp::toggleSettings(int minValue, int maxValue)
 	toggleReload = 50;
 }
  
-void isr_ext()
+void ICACHE_RAM_ATTR isr_ext()     //void isr_ext() ESP8266 INTERRUPT AND ISR NOT IN IRAM!
 {
 	for (int i = 0; i < current_dim; i++ ) 
 		if (dimState[i] == ON) 
